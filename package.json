@@ -1,6 +1,6 @@
 { "name" : "argtype"
 , "description" : "JavaScript function arguments type checker"
-, "version" : "0.1.0"
+, "version" : "0.1.1"
 , "homepage" : "http://magnimedia.no/"
 , "author" : "Tor Valamo <tor.valamo@magimedia.no> (http://magnimedia.no/)"
 , "repository" :

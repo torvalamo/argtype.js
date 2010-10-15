@@ -17,8 +17,8 @@ Using [npm](http://npmjs.org)
     // weigh(a, b[, difference]) - return largest of two integers, or difference
     function weigh() {
       with(_(arguments,
-             ['a', 'b', ['difference']], // note extra brackets around optional argument
-             ['number', 'number', 'boolean'])) {
+             ['a', 'b', 'difference'], 
+             ['number', 'number', ['boolean']])) { // note extra brackets around optional argument
         if (!!difference) {
           if (weigh(a, b) == a) return a - b
           else return b - a
@@ -29,9 +29,9 @@ Using [npm](http://npmjs.org)
 
 ## Help
 
-Note that it is done this way (using with) because it is also intended for
-browsers, and not all browsers support tampering with the arguments object
-passed through to another function (and nor should they).
+Note that it is done this way (using with) because it was originally intended
+for browsers only, and not all browsers support tampering with the arguments
+object passed through to another function (and nor should they).
 
 If anyone thinks they have a more efficient way to do checking like this (or
 just a really effective node-specific way) even if it means a completely
