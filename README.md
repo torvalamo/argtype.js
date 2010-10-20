@@ -56,7 +56,8 @@ Each entry can be one of three different styles:
 
 * Any JavaScript type which can be matched with `typeof`, __except
 'undefined'__. Examples include 'object', 'number', 'string', 'regexp',
-'function', 'boolean', 'array'.
+'function', 'boolean' and 'array' (array is not really a primitive type, but it
+is handled separately as if it was).
 * Types 'integer' or 'float' are interpreted as 'number'
 * If the type is an actual RegExp objects (instead of just the string 'regexp'),
 the value will be evaluated with the regex. This is useful if you want to make
