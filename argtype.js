@@ -34,9 +34,9 @@ function argtype(thisObj, args, func) {
   if (args instanceof Function && func instanceof Array) {
     // this is acceptable input (don't want to force one particular order).
     // both the normal closure "convention"
-    //  argtype([args], function(...) {...})
+    //  argtype(this, [args], function(...) {...})
     // and the nicer looking (if your func has a name already)
-    //  argtype(someFunc, [args])
+    //  argtype(this, someFunc, [args])
     // are acceptable
     var tmp = args
     args = func
@@ -49,7 +49,7 @@ function argtype(thisObj, args, func) {
   return function() {
     var argslist = []
       , i = 0
-    for (var a = 0; a < args.length; a++, i++) {
+    for (var a = 0; a < args.length; a++) {
       // if the argument is square bracketed (array), it's optional
       var optional = args[a] instanceof Array
         , type = optional ? args[a][0] : args[a]
@@ -63,10 +63,9 @@ function argtype(thisObj, args, func) {
         }
         // set its default value (or undefined, by design)
         argslist.push(args[a][1])
-        i-- // we don't want to move to the next argument yet
       } else {
         // correct type
-        argslist.push(arguments[i])
+        argslist.push(arguments[i++])
       }
     }
     // concatenate any arguments beyond the type check
