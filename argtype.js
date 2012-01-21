@@ -52,7 +52,7 @@ function _checkRecursive(args, list, array) {
       return false // current is required
     } else {
       array.push(list[0].default)
-      return _checkRecursive(args, list.slice(1), array, level + 1) // keep checking
+      return _checkRecursive(args, list.slice(1), array) // keep checking
     }
   }
   if (!list.length) {
@@ -63,7 +63,7 @@ function _checkRecursive(args, list, array) {
     // it is, continue recursing
     var arr = array.length
     array.push(args[0])
-    if (_checkRecursive(args.slice(1), list.slice(1), array, level + 1)) {
+    if (_checkRecursive(args.slice(1), list.slice(1), array)) {
       return true
     }
     array.splice(arr) // remove any potential added elements
@@ -71,7 +71,7 @@ function _checkRecursive(args, list, array) {
   // no match, is it required? if not, skip
   if (!list[0].required) {
     array.push(list[0].default)
-    return _checkRecursive(args, list.slice(1), array, level + 1)
+    return _checkRecursive(args, list.slice(1), array)
   }
   return false
 }
