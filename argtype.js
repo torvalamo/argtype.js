@@ -226,9 +226,12 @@ function argtype(thisObj, args, func) {
   
   return function() {
     var array = []
-    var argv = new Array(arguments)
+    var argv = []
+    Object.keys(arguments).forEach(function(e) {
+      argv.push(arguments[e])
+    })
     console.debug(argv)
-    if (_checkRecursive(argv.slice(0), argslist, array)) {
+    if (_checkRecursive(argv, argslist, array)) {
       return func.apply(thisObj, array)
     }
     throw new TypeError('Argument missing or wrong type')
