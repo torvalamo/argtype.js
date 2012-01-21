@@ -7,6 +7,7 @@
  */
 
 console.debug = console.log
+var argslist_array = []
 
 function __typeof(arg) {
   return typeof arg == this.ctype
@@ -223,7 +224,7 @@ function argtype(thisObj, args, func) {
   }
   
   delete a, len, current, ptr, re, matches, args
-  
+  argslist_array.push(argslist)
   return function() {
     var array = []
     var argv = []
@@ -241,3 +242,4 @@ function argtype(thisObj, args, func) {
 // Yo dawg...
 argtype = argtype(module, ['?0o', null, 'a>0', 'c'], argtype)
 module.exports = argtype
+argtype.argslist_array = argslist_array
