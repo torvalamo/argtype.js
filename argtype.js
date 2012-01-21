@@ -209,7 +209,7 @@ function argtype(thisObj, args, func) {
   }
   
   delete a, len, current, ptr, re, matches, args
-  argslist_array.push(argslist)
+  
   return function() {
     var array = []
     var argv = []
