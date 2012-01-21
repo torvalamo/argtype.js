@@ -98,10 +98,10 @@ function argtype(thisObj, args, func) {
     , current = -1
     , ptr
     , re = /^(\?)?(0)?(\+)?([\.nifsbcoat])(?:\=(\(|\[)(\-?(\d+(?:.\d+)?)?)\,(\-?(\d+(?:.\d+)?)?)(\)|\])|((?:\>|\<)\=?)(\-?\d+(?:.\d+)?)|\/(.*))?$/i
-    , matches = null
     
   // Parse the arguments list
   for (; a < len ; a++) {
+    var matches
     if (typeof args[a] == 'string' && (matches = args[a].match(re))) {
       // Does the string have proper argtype format?
       if (matches === null) {
