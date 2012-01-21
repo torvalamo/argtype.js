@@ -228,7 +228,7 @@ function argtype(thisObj, args, func) {
     var array = []
     var argv = []
     Object.keys(arguments).forEach(function(e) {
-      argv.push(arguments[e])
+      argv.push(arguments[parseInt(e)])
     })
     console.debug(argv)
     if (_checkRecursive(argv, argslist, array)) {
