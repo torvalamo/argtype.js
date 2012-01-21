@@ -94,7 +94,6 @@ function argtype(thisObj, args, func) {
                               ' is not a valid argtype string')
       }
       
-      console.debug(matches)
       // Add this new argument
       argslist.push({
         required: !matches[1],
