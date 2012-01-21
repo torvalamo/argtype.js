@@ -220,5 +220,5 @@ function argtype(thisObj, args, func) {
 }
 
 // Yo dawg...
-argtype = argtype(module, ['?o', null, 'a>0', 'c'], argtype)
+argtype = argtype(module, ['?0o', null, 'a>0', 'c'], argtype)
 module.exports = argtype

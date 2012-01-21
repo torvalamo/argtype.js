@@ -19,18 +19,18 @@ Putting it short:
 * `0` means its value can be null. This must be the next character (first if no optional). `'0s'` - required string, but can be null
 * `+` means that the value must be either an unsigned (positive) number, or case-sensitivity in a regex part (see below).
 * Then follows the type character. There are many different types:
-** `.` - Untyped (the type of the input is not checked, just optionality and default values)
-** `n` - Number. Use `i` for integer and `f` for float to be specific.
-** `s` - String.
-** `b` - Boolean.
-** `c` - Function. The input must match typeof 'function'
-** `o` - Object. An object that matches typeof 'object'. Function-objects will not match (see `t`)
-** `a` - Array. Input matches instanceof Array.
-** `t` - Function-object. Input matches instanceof the function-object given in the next argument.
+  * `.` - Untyped (the type of the input is not checked, just optionality and default values)
+  * `n` - Number. Use `i` for integer and `f` for float to be specific.
+  * `s` - String.
+  * `b` - Boolean.
+  * `c` - Function. The input must match typeof 'function'
+  * `o` - Object. An object that matches typeof 'object'. Function-objects will not match (see `t`)
+  * `a` - Array. Input matches instanceof Array.
+  * `t` - Function-object. Input matches instanceof the function-object given in the next argument.
 * After the type character comes range limits and/or pattern matching. Only some types support either.
-** `/` indicates a regular expression follows until the end of the string. This will be matched against untyped or string inputs. It will be ignored for any other types.
-** `=` indicates that the value is within a range, given as a closed interval `[from,to]` or an open interval `(from,to)`. Bracket types can be mixed, like so `[closed,open)`.
-** `>`, `>=`, `<`, `<=` indicates that the value should be 'greater than', 'greater than or equal to', 'lesser than' or 'lesser than or equal to' the number which follows. `s>3` - A string longer than 3 characters. Length also works for arrays. Numbers use their actual value.
+  * `/` indicates a regular expression follows until the end of the string. This will be matched against untyped or string inputs. It will be ignored for any other types.
+  * `=` indicates that the value is within a range, given as a closed interval `[from,to]` or an open interval `(from,to)`. Bracket types can be mixed, like so `[closed,open)`.
+  * `>`, `>=`, `<`, `<=` indicates that the value should be 'greater than', 'greater than or equal to', 'lesser than' or 'lesser than or equal to' the number which follows. `s>3` - A string longer than 3 characters. Length also works for arrays. Numbers use their actual value.
 
 The next argument can be (in the case of 't') further specification of the string definition, and must be the function-object which input will be matched (instanceof) against.
 
