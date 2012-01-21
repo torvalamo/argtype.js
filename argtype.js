@@ -200,7 +200,7 @@ function argtype(thisObj, args, func) {
       if (ptr.type == 't') ptr.ctype == Function ? ptr.default = args[a] : ptr.ctype = args[a]
       // However, if it's a 'c'-type or untyped then this can only be a default
       else if (ptr.type == 'c' || ptr.type == '.') ptr.default = args[a]
-    } else if (argslist[current].match(args[a])) {
+    } else if (argslist[current].match(args[a]) || (!argslist[current].notnull && args[a] === null)) {
       argslist[current].default = args[a]
     } else {
       throw new TypeError('Argtype element ' + a +
