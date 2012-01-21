@@ -43,36 +43,47 @@ function __ctype(arg) {
   return arg instanceof this.ctype
 }
   
-function _checkRecursive(args, list, array) {
+function _checkRecursive(args, list, array, level) {
+  level = level || 0
   if (!args.length) {
     // no more args, check if the remaining list is required
     if (!list.length) {
+      console.debug(level + ': Args0: List0')
       return true // no more list
     } else if (list[0].required) {
+      console.debug(level + ': Args0: Required missing: ' + list[0])
       return false // current is required
     } else {
+      console.debug(level + ': Args0: Recursing...')
       array.push(list[0].default)
-      return _checkRecursive(args, list.slice(1), array) // keep checking
+      return _checkRecursive(args, list.slice(1), array, level + 1) // keep checking
     }
   }
   if (!list.length) {
+    console.debug(level + ': List0')
     return true
   }
   // check if current is a match (or allowed null)
   if (list[0].match(args[0]) || (!list[0].notnull && args[0] === null)) {
+    console.debug(level + ': Arg matched list, or was allowed null (' + !list[0].notnull + ')')
     // it is, continue recursing
     var arr = array.length
     array.push(args[0])
-    if (_checkRecursive(args.slice(1), list.slice(1), array)) {
+    console.debug(level + ': Recursing...')
+    if (_checkRecursive(args.slice(1), list.slice(1), array, level + 1)) {
+      console.debug(level + ': Success!')
       return true
     }
+    console.debug(level + ': Recursing failed')
     array.splice(arr) // remove any potential added elements
   }
   // no match, is it required? if not, skip
   if (!list[0].required) {
+    console.debug(level + ': Not required, skipping')
     array.push(list[0].default)
-    return _checkRecursive(args, list.slice(1))
+    return _checkRecursive(args, list.slice(1), array, level + 1)
   }
+  console.debug(level + ': No match, missing required')
   return false
 }
 
