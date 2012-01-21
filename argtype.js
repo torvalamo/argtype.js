@@ -86,7 +86,7 @@ function argtype(thisObj, args, func) {
     , matches = null
     
   // Parse the arguments list
-  for (; a <= len ; a++) {
+  for (; a < len ; a++) {
     if (typeof args[a] == 'string' && (matches = args[a].match(re))) {
       // Does the string have proper argtype format?
       if (matches === null) {
@@ -195,7 +195,7 @@ function argtype(thisObj, args, func) {
     } else if (typeof args[a] == 'function') {
       if (~current) ptr = argslist[current]
       else throw TypeError('Argtype element ' + a +
-                           'was not of expected type')
+                           ' was not of expected type')
       // If the current arg is a 't'-type this is either a default or a type
       if (ptr.type == 't') ptr.ctype == Function ? ptr.default = args[a] : ptr.ctype = args[a]
       // However, if it's a 'c'-type or untyped then this can only be a default
@@ -204,7 +204,7 @@ function argtype(thisObj, args, func) {
       argslist[current].default = args[a]
     } else {
       throw new TypeError('Argtype element ' + a +
-                          'was not of expected type')
+                          ' was not of expected type')
     }
   }
   
@@ -212,7 +212,7 @@ function argtype(thisObj, args, func) {
   
   return function() {
     var array = []
-    if (_checkRecursive(arguments.slice(0), argslist, array)) {
+    if (_checkRecursive((new Array(arguments)).slice(0), argslist, array)) {
       return func.apply(thisObj, array)
     }
     throw new TypeError('Argument missing or wrong type')
