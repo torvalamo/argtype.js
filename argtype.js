@@ -47,6 +47,7 @@ function __ctype(arg) {
   
 function _checkRecursive(args, list, array, level) {
   level = level || 0
+  console.log(level + ': ' + args)
   if (!args.length) {
     // no more args, check if the remaining list is required
     if (!list.length) {
