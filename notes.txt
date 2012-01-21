@@ -1,0 +1,79 @@
+DISCLAIMER:
+This file is just dev notes, it is not a complete documentation at all, and some of it is wrong.
+
+
+Parameters
+- Required
+/ Optional (prefix '?')
+
+- Type
+  - Untyped ('.')
+  / Array ('a')
+  / Object ('o')
+  / Date, Function, RegExp, or other (even custom) constructor function objects
+    ('f', then pass the constructor identifier as next argument, without quotes, otherwise assumed to be Function (a callback))
+  / Number ('n', prefix '+' for unsigned)
+    - Integer ('i', prefix '+' for unsigned)
+    - Double/float ('d', prefix '+' for unsigned)
+  / String ('s')
+/ Matching pattern
+  - RegExp pattern (can be applied to Untyped and String, prefix '/', prefix '+' for case sensitive)
+/ Within range / greater than / less than  (prefix '=', '>', '<' respectively)
+  - Number (between x and y, at least x, at most y)
+  ! String (between x and y characters, at least x, at most y)
+  ! Array
+/ Default values (next argument)
+  - Untyped, Array, Object, CFO, Number, String
+    Can all have a default value specified if the argument is optional
+  - Object can have a default list of properties that will be applied if
+    they are not specified in the supplied object/hash, also when the argument
+    is required.
+  - A missing argument that is optional and does not have a default value will
+    be passed to the function as if the default value was undefined (the js
+    'undefined' object). This is also how js behaves with missing arguments.
+
+
+
+Exceptions
+- TypeError (on bad type input)
+
+
+Argtype string:
+
+An optional argument with an unsigned (positive) number:
+'?+n'
+
+A required argument with an integer between -5 and +5 (non inclusive):
+'i=(-5,5)'
+
+Same, but inclusive on the positive side:
+'i=(-5,5]'
+
+A required date:
+'f', Date
+
+An optional string with at least 4 characters:
+'?s>3'
+or
+'?s>=4'
+
+A required license number with a certain format specified by regex:
+'s/[A-Z]{2} [0-9]{5}'
+
+An optional callback:
+'?c'
+or
+'?t', Function
+
+A required options hash with a default value for one option (will be used if that option is not specified in the input):
+'o', {name: 'John Doe'}
+
+An optional callback with console.log as default, used if no callback is specified:
+'?c', console.log
+or
+'?t', Function, console.log
+
+An array argument
+'a'
+or
+'t', Array

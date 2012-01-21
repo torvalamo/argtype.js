@@ -58,8 +58,8 @@ function _checkRecursive(args, list, array) {
   if (!list.length) {
     return true
   }
-  // check if current is a match
-  if (list[0].match(args[0])) {
+  // check if current is a match (or allowed null)
+  if (list[0].match(args[0]) || (!list[0].notnull && args[0] === null)) {
     // it is, continue recursing
     var arr = array.length
     array.push(args[0])
