@@ -6,6 +6,8 @@
  * See file COPYING for details.
  */
 
+console.debug = console.log
+
 function __typeof(arg) {
   return typeof arg == this.ctype
 }
