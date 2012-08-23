@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/torvalamo/argtype.js.png)](http://travis-ci.org/torvalamo/argtype.js)
 # argtype.js
 
 Completely rewritten. Old docs no longer relevant, more will come here.
