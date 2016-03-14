@@ -1,6 +1,14 @@
 # argtype.js
 
-Completely rewritten. Old docs no longer relevant, more will come here.
+## 2016
+
+If anyone wants to contribute to cleaning up this stuff, feel free to create pull requests.
+
+Added package.json, since it broke npm.
+
+Also I have no idea why people use this, but apparently some do, which is the only reason I felt like updating the npm entry.
+
+## Usage
 
 Example of use:
 
