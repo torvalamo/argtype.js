@@ -1,0 +1,8 @@
+{
+  "name": "argtype",
+  "version": "0.2.0",
+  "description": "JavaScript function arguments type checker",
+  "main": "argtype.js",
+  "repository": "torvalamo/argtype.js",
+  "license": "MIT"
+}
