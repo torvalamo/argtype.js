@@ -1,5 +1,7 @@
 # argtype.js
 
+    npm install argtype
+
 ## 2016
 
 If anyone wants to contribute to cleaning up this stuff, feel free to create pull requests.
