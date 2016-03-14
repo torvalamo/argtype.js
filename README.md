@@ -4,7 +4,7 @@
 
 ## 2016
 
-If anyone wants to contribute to cleaning up this stuff, feel free to create pull requests.
+If anyone wants to contribute to cleaning up this stuff, feel free to create pull requests. I have a snaky suspicion there might be a smarter way to implement this concept.
 
 Added package.json, since it broke npm.
 
