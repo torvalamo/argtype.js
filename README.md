@@ -1,5 +1,8 @@
 # argtype.js
 
+[![npm version](https://badge.fury.io/js/argtype.svg)](https://badge.fury.io/js/argtype)
+[![Build Status](https://travis-ci.org/torvalamo/argtype.js.svg?branch=master)](https://travis-ci.org/torvalamo/argtype.js)
+
     npm install argtype
 
 ## 2016
