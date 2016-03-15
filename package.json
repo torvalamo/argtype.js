@@ -4,5 +4,5 @@
   "description": "JavaScript function arguments type checker",
   "main": "argtype.js",
   "repository": "torvalamo/argtype.js",
-  "license": "MIT"
+  "license": "Simplified BSD"
 }
